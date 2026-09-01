@@ -3,7 +3,6 @@
         active-text-color="#ffd04b"
         background-color="#545c64"
         class="el-menu-vertical-demo"
-        default-active="1"
         text-color="#fff"
       >
         
@@ -11,7 +10,11 @@
             <el-icon><Menu /></el-icon>
             <span>站点管理</span>
         </el-menu-item>
-        <el-menu-item index="2" @click="open('/setting')">
+        <el-menu-item index="2" @click="open('/security')">
+            <el-icon><Key /></el-icon>
+            <span>安全设置</span>
+        </el-menu-item>
+        <el-menu-item index="3" @click="open('/setting')">
             <el-icon><setting /></el-icon>
             <span>系统设置</span>
         </el-menu-item>

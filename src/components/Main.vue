@@ -2,6 +2,13 @@
     <el-row>
         <el-col :span="24">
             <el-card class="box-card pageCard">
+                <el-breadcrumb :separator-icon="ArrowRight">
+                    <el-breadcrumb-item>站点管理</el-breadcrumb-item>
+                </el-breadcrumb>
+            </el-card>
+        </el-col>
+        <el-col :span="24">
+            <el-card class="box-card pageCard">
                 <div slot="header" class="clearfix">
                     <el-input
                         @keydown.native.enter="query(input1,0,page.pageSize)"
@@ -78,6 +85,7 @@
     </el-row>
 </template>
 <script lang="ts" setup>
+    import { ArrowRight } from '@element-plus/icons-vue'
     import {ref, onMounted ,reactive} from 'vue'
     import axios from '../my_axios'
 
@@ -161,7 +169,7 @@
 			}
 			
 			.pageCard{
-				margin: 0px 0px 0px 10px;
+				margin: 0px 0px 10px 10px;
 			}
 			
 			.el-table--enable-row-hover .el-table__body tr:hover>td{
