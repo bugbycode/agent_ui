@@ -5,31 +5,22 @@
         class="el-menu-vertical-demo"
         default-active="1"
         text-color="#fff"
-        @open="handleOpen"
-        @close="handleClose"
       >
         
-        <el-menu-item index="1">
-            <el-icon><icon-menu /></el-icon>
+        <el-menu-item index="1" @click="open('/main')">
+            <el-icon><Menu /></el-icon>
             <span>站点管理</span>
         </el-menu-item>
-        <el-menu-item index="2">
+        <el-menu-item index="2" @click="open('/setting')">
             <el-icon><setting /></el-icon>
             <span>系统设置</span>
         </el-menu-item>
     </el-menu>
 </template>
 <script setup lang="ts">
-    import {
-  Document,
-  Menu as IconMenu,
-  Location,
-  Setting,
-} from '@element-plus/icons-vue'
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
+    import { useRoute, useRouter } from 'vue-router'
+    const router = useRouter()
+    const open = (key) => {
+      router.push(key);
+    }
 </script>

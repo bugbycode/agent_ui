@@ -1,8 +1,9 @@
 import { createWebHashHistory, createRouter } from 'vue-router'
 
 import LayoutView from './components/Layout.vue'
-import MenuView from './components/Menu.vue'
+import SettingView from './components/Setting.vue'
 import MainView from './components/Main.vue'
+import component from 'element-plus/es/components/tree-select/src/tree-select-option.mjs'
 
 const routes = [
     {
@@ -13,6 +14,9 @@ const routes = [
             },
             {
                 path: 'main', component: MainView
+            },
+            {
+                path: 'setting', component: SettingView
             }
         ]
     }
