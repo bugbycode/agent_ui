@@ -101,7 +101,7 @@
     const tableData = ref([]);
 
     const changeForward = (row) => {
-        axios.post('/api/updateForwardById?id=' + row.id 
+        axios.post('/api/host/updateForwardById?id=' + row.id 
             		  + '&forward=' + row.forward).then(function(result){
                   console.log(result);
               }).catch(function(e){
@@ -110,7 +110,7 @@
     }
 
     const query = (keyword,offset,limit) => {
-        axios.get('/api/query',{
+        axios.get('/api/host/query',{
                   params:{
                       queryParam:keyword,
                       offset:offset,
