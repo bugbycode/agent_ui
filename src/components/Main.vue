@@ -79,7 +79,7 @@
 </template>
 <script lang="ts" setup>
     import {ref, onMounted ,reactive} from 'vue'
-    import axios from './../my_axios'
+    import axios from '../my_axios'
 
     const input1 = ref('')
     const page = reactive({
