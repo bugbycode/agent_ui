@@ -20,7 +20,7 @@
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="onSubmit">确认</el-button>
-                    <el-button>Cancel</el-button>
+                    <el-button @click="cancel">取消</el-button>
                 </el-form-item>
             </el-form>
         </el-card>
@@ -28,6 +28,7 @@
     
 </template>
 <script lang="ts" setup>
+    import { ElMessageBox, ElMessage } from 'element-plus'
     import { ArrowRight } from '@element-plus/icons-vue'
     import {ref, onMounted ,reactive} from 'vue'
     import axios from '../my_axios'
@@ -39,6 +40,26 @@
     })
 
     const onSubmit = () => {
-        
+
+        const formData = new FormData();
+        formData.append('oldPassword', form.oldPassword);
+        formData.append('newPassword', form.newPassword);
+        formData.append('confirmPassword', form.confirmPassword);
+        axios.post('/api/user/updatePassword', formData).then(function(result){
+            if(result.code == 1){
+                ElMessage.error({message: result.message});
+            } else if(result.code == 0){
+                ElMessage.success({message: result.message});
+                form.oldPassword = '';
+                form.newPassword = '';
+                form.confirmPassword = '';
+            }
+        })
+    }
+
+    const cancel = () => {
+        form.oldPassword = '';
+        form.newPassword = '';
+        form.confirmPassword = '';
     }
 </script>
