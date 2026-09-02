@@ -51,8 +51,8 @@
                         width="150"
                         label="访问结果">
                             <template #default="scope">
-                                <el-tag type="success" v-if="scope.row.result == 1" effect="dark"> 成功 </el-tag>
-                                <el-tag type="danger" v-if="scope.row.result == 0" effect="dark"> 失败 </el-tag>
+                                <el-tag type="success" v-if="scope.row.result == 1" effect="dark" size="small"> 成功 </el-tag>
+                                <el-tag type="danger" v-if="scope.row.result == 0" effect="dark" size="small"> 失败 </el-tag>
                             </template>
                         </el-table-column>
                         <el-table-column
@@ -64,7 +64,8 @@
                                     active-color="#13ce66"
                                     inactive-color="#d8ddda"
                                     :active-value="1"
-                                    :inactive-value="0">
+                                    :inactive-value="0"
+                                     size="small">
                                 </el-switch>
                             </template>
                         </el-table-column>

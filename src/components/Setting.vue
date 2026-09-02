@@ -138,15 +138,21 @@
                 formData.append('file', file)
             }
             
-            axios.post('/api/setting/update', formData).then(function(result){
-                if(result.code == 1){
-                    ElMessage.error({message: result.message});
-                } else {
-                    ElMessage.success({message: result.message});
-                }
-            }).catch(function(e){
-                console.error(e);
+            ElMessageBox.confirm('该操作将重启代理服务，请选择是否执行？', '温馨提示').then(() => {
+                axios.post('/api/setting/update', formData).then(function(result){
+                    if(result.code == 1){
+                        ElMessage.error({message: result.message});
+                    } else {
+                        ElMessage.success({message: result.message});
+                    }
+                }).catch(function(e){
+                    console.error(e);
+                })
+            }).catch(() => {
+            
             })
+
+            
         } else {
             ElMessage.error({message: message});
         }

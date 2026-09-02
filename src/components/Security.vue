@@ -10,17 +10,20 @@
         <el-card class="box-card pageCard">
             <el-form :model="form" label-width="auto" style="max-width: 600px">
                 <el-form-item label="旧密码">
-                    <el-input v-model="form.oldPassword" type="password" show-password clearable />
+                    <el-input v-model="form.oldPassword" type="password" show-password clearable placeholder="请输入旧密码"/>
                 </el-form-item>
                 <el-form-item label="新密码">
-                    <el-input v-model="form.newPassword" type="password" show-password clearable />
+                    <el-input v-model="form.newPassword" type="password" show-password clearable placeholder="请输入新密码"/>
                 </el-form-item>
                 <el-form-item label="确认密码">
-                    <el-input v-model="form.confirmPassword" type="password" show-password clearable />
+                    <el-input v-model="form.confirmPassword" type="password" show-password clearable placeholder="请确认新密码"/>
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="onSubmit">确认</el-button>
                     <el-button @click="cancel">取消</el-button>
+                    <el-button type="warning" @click="logout">
+                        注销<el-icon class="el-icon--right"><Lock /></el-icon>
+                    </el-button>
                 </el-form-item>
             </el-form>
         </el-card>
@@ -61,5 +64,14 @@
         form.oldPassword = '';
         form.newPassword = '';
         form.confirmPassword = '';
+    }
+
+    const logout = () => {
+        ElMessageBox.confirm('确定注销登录状态吗？', '温馨提示')
+        .then(() => {
+            location.href='/logout'
+        }).catch(() => {
+        
+        })
     }
 </script>
